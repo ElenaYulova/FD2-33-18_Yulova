@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slice</title>
+</head>
+<body>
+    <script>
+        var text = '';
+        function textSlice(textToSlice) {
+           
+            while (textToSlice.charAt(0) == " ") {
+                textToSlice = textToSlice.slice(1);
+            }
+            while (textToSlice.slice(-1) == " ") {
+                textToSlice = textToSlice.slice(0, -1);
+                
+            }
+            return textToSlice;
+        }
+       
+        text = prompt("Введите произвольный текст").toLowerCase();
+    console.log("Строка без начальных и конечных пробелов: \n" + textSlice(text));
+        
+    </script>
+</body>
+</html>
