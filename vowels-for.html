@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+        "use strict"
     var text = "";
     
     function vowelsCount(textVowels) {
@@ -16,12 +17,12 @@
         textVowels = textVowels.split('');
         var vowelsCheck = {};
         var found = 0;
-        for(j = 0; j < vowels.length; j++) {
+        for(var j = 0; j < vowels.length; j++) {
             var vowel = vowels[j];
             vowelsCheck[vowel] = true;
         }
         
-        for (i=0; i < textVowels.length; i++) {
+        for (var i=0; i < textVowels.length; i++) {
             if (textVowels[i] in vowelsCheck) {
                 found++; 
             }
