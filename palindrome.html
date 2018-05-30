@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Палиндром</title>
+</head>
+<body>
+    <script>
+    var text = "";
+    function isPalindrome(palindrome) {
+        palindrome = palindrome.replace(/[^a-zA-Zа-яА-Я]/g, '');
+        palindrome = palindrome.replace(/ё/g, "е");
+        palindrome = palindrome.replace(/ъ/g, "ь");
+        for (var i = 0; i < Math.ceil(palindrome.length/2); i++) {
+            if (palindrome.charAt(i) != palindrome.charAt(palindrome.length-(1+i))) {
+                return "Нет";
+                }
+            
+        }
+        return "Да";
+    }
+    text = prompt("Введите произвольный текст").toLowerCase();
+    console.log("Является ли текст палиндромом? " + isPalindrome(text));
+    </script>
+</body>
+</html>
