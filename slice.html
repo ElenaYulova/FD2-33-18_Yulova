@@ -12,17 +12,17 @@
         function textSlice(textToSlice) {
            
             while (textToSlice.charAt(0) == " ") {
-                textToSlice = textToSlice.slice(1);
+                textToSlice = textToSlice.substr(1, textToSlice.length - 1);
             }
-            while (textToSlice.slice(-1) == " ") {
-                textToSlice = textToSlice.slice(0, -1);
+            while (textToSlice.charAt(textToSlice.length - 1) == " ") {
+                textToSlice = textToSlice.substr(0, textToSlice.length - 1);
                 
             }
             return textToSlice;
         }
        
         text = prompt("Введите произвольный текст");
-    console.log("Строка без начальных и конечных пробелов: \n" + textSlice(text));
+    console.log("Строка без начальных и конечных пробелов: \n" + "\""+ textSlice(text)  + "\"");
         
     </script>
 </body>
