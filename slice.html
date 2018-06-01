@@ -10,15 +10,16 @@
     <script>
         var text = '';
         function textSlice(textToSlice) {
-           
-            while (textToSlice.charAt(0) == " ") {
-                textToSlice = textToSlice.substr(1, textToSlice.length - 1);
+           var strStart = 0;
+           var strEnd = 1;
+            while (textToSlice.charAt(strStart) == " ") {
+                strStart++;
             }
-            while (textToSlice.charAt(textToSlice.length - 1) == " ") {
-                textToSlice = textToSlice.substr(0, textToSlice.length - 1);
+            while (textToSlice.charAt(textToSlice.length - strEnd) == " ") {
+                strEnd++;
                 
             }
-            return textToSlice;
+            return textToSlice.slice(strStart, textToSlice.length - (strEnd-1));
         }
        
         text = prompt("Введите произвольный текст");
