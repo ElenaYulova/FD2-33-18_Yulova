@@ -12,6 +12,9 @@
         function textSlice(textToSlice) {
            var strStart = 0;
            var strEnd = 1;
+           if (textToSlice.replace(/ /g, "") == "") {
+               return "";
+           }
             while (textToSlice.charAt(strStart) == " ") {
                 strStart++;
             }
