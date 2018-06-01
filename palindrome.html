@@ -10,19 +10,24 @@
     <script>
     var text = "";
     function isPalindrome(palindrome) {
-        palindrome = palindrome.replace(/[^a-zA-Zа-яА-Я]/g, '');
+        palindrome = palindrome.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, '').toLowerCase();
         palindrome = palindrome.replace(/ё/g, "е");
         palindrome = palindrome.replace(/ъ/g, "ь");
         for (var i = 0; i < Math.ceil(palindrome.length/2); i++) {
             if (palindrome.charAt(i) != palindrome.charAt(palindrome.length-(1+i))) {
-                return "Нет";
+                return false;
                 }
             
         }
-        return "Да";
+        return true;
     }
-    text = prompt("Введите произвольный текст").toLowerCase();
-    console.log("Является ли текст палиндромом? " + isPalindrome(text));
+    text = prompt("Введите произвольный текст");
+    if (isPalindrome(text)) {
+        console.log("Текст является палиндромом");  
+    } else {
+        console.log("Текст не является палиндромом"); 
+    }
+    
     </script>
 </body>
 </html>
