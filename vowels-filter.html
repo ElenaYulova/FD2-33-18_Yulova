@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vowels</title>
+</head>
+<body>
+    <script>
+    var text = "";
+    
+    function vowelsCount(textVowels) {
+        textVowels = textVowels.toLowerCase().split('');
+        
+        var vowels = ["а", "о", "э", "и", "у", "ы", "е", "ё", "ю", "я"];
+        var vowelsCheck = {};
+        for(var j = 0; j < vowels.length; j++) {
+            var vowel = vowels[j];
+            vowelsCheck[vowel] = true;
+        }
+        var found = textVowels.filter(function(v, i, a){
+            return (v in vowelsCheck);
+            
+        }
+        
+        );
+
+        return found.length;
+    }
+    text = prompt("Введите произвольный текст");
+    console.log("Во введённом тексте " + vowelsCount(text) + " гласных букв(ы)");
+    </script>
+</body>
+</html>
