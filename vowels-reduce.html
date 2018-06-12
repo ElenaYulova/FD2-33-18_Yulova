@@ -22,9 +22,11 @@
 
         var found = textVowels.reduce(function(r, v, i, a){
             if (v in vowelsCheck) {
-            return r++;
+            return ++r;
             }
-            
+            else {
+                return r;
+            }
         }, 0);
 
         return found;
