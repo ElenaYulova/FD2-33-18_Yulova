@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+   
+}
+form {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    min-width: 300px;
+    max-width: 500px; 
+}
+label {
+    display: block;
+    margin-top: 20px;
+}
+input {
+    color: gray;
+    border: 1px gray solid;
+    
+    
+
+}
+textarea {
+    max-width: 450px;
+    min-width: 250px;
+    min-height: 50px;
+}
+
