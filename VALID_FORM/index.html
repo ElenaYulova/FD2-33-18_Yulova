@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VALID_FORM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form name='feedback' action='http://fe.it-academy.by/TestForm.php' novalidate>
+        <label for="developer">Разработчики:</label> 
+        <input class="text_input" type=text name='developer'>
+        <span id='developerErr'>Пожалуйста, заполните поле</span>
+        <br /> 
+        <label for="siteName">Название сайта:</label>
+        <input class="text_input" type=text name='siteName'>
+        <span id='siteNameErr'>Пожалуйста, заполните поле</span>
+        
+        <br />
+        <label for="siteUrl">URL сайта:</label>
+        <input class="middle_input" type=text name='siteUrl'>
+        <span id='siteUrlErr'>Пожалуйста, заполните поле</span>
+        
+        <br /> 
+        <label for="startDate">Дата запуска сайта:</label> 
+        <input class="small_input" type=text name='startDate'>
+        <span id='startDateErr'>Пожалуйста, заполните поле</span>
+        
+        <br /> 
+        <label for="visitors">Посетителей в сутки:</label> 
+        <input class="small_input" type=text name='visitors'>
+        <span id='visitorsErr'>Пожалуйста, заполните поле</span>
+        
+        <br /> 
+        <label for="email">E-mail для связи:</label> 
+        <input class="middle_input" type=text name='email'>
+        <span id='emailErr'>Пожалуйста, заполните поле</span>
+        
+        <br /> 
+        <label for="section">Рубрика каталога:</label> 
+        <select name='section'>
+            <option value=1>здоровье</option>
+            <option value=2>домашний уют</option>
+            <option value=3>бытовая техника</option>
+        </select>
+        <span id='sectionErr'>Пожалуйста, выберите один из вариантов</span>
+       
+        <br />
+        <label for="placing">Размещение:</label>
+        <span id='placingErr'>Пожалуйста, выберите один из вариантов</span>
+            <br />
+            <input type=radio name='placing' id='placing1' value=11 id='r1'>бесплатное
+            <br />
+            <input type=radio name='placing' id='placing2' value=22 id='r2'>платное
+            <br />
+            <input type=radio name='placing'id='placing3' value=33 id='r3'>VIP
+            <br />
+        
+        <label for="review">Разрешить отзывы:</label> 
+        <input type=checkbox name='review' id='сh1'>
+        <span id='reviewErr'></span>
+        
+        <br /><label for="description">Описание сайта:</label>
+        <span id='descriptionErr'>Пожалуйста, заполните поле</span>
+        <br />
+        <textarea name='description'></textarea>
+        <br />
+        
+        <input type='submit' id='submit' value='Опубликовать'>
+    </form>
+    <script src="main.js"></script>
+</body>
+</html>

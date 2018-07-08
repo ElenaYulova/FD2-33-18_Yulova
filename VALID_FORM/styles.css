@@ -1,0 +1,23 @@
+label {
+    display: inline-block;
+    width: 150px;
+}
+span {
+    color: red;
+    visibility: hidden;
+}
+input.text_input {
+    width: 400px;
+}
+input.small_input {
+    width: 100px;
+}
+input.middle_input, select {
+    width: 200px;
+}
+textarea {
+    width: 550px;
+    min-width: 250px;
+    max-width: 600px;
+    min-height: 50px;
+}
