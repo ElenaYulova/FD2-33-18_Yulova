@@ -26,7 +26,7 @@ function validation(EO) {
     ok = ok && validateSection(ok);
     ok = ok && validatePlacing(ok);
     ok = ok && ValidateReview(ok);
-    ok = ok && ValidateDescription(ok);
+    ok = ok && validateDescription(ok);
     if (!ok) {
         EO.preventDefault();
         validate();   
@@ -44,7 +44,7 @@ function validate() {
     validateSection();
     validatePlacing();
     ValidateReview();
-    ValidateDescription(); 
+    validateDescription(); 
 }
 
 //var  = document.getElementByName("");
@@ -165,11 +165,28 @@ function validatePlacing(toFocus) {
         ok = false;
     }
     spanAlert(placing, spanID, ok);
-    if (ok) spanID.style.visibility = "hidden";
+    placing.onchecked= function () {if (ok) spanID.style.visibility = "hidden"};
     if (toFocus) placing.focus(); 
     return ok;
+    
 }
 
+var review = feedback.elements.section;
+review.onchange = function () {ValidateReview(false)};
+function ValidateReview(toFocus) {
+    var ok = true;
+    var review = feedback.elements.review;
+    var spanID = document.getElementById("reviewErr");
+    var ch1 = document.getElementById("ch1");
+    if (!сh1.checked) {
+        ok = false;
+    }
+    spanAlert(review, spanID, ok);
+    if (ok) spanID.style.visibility = "hidden";
+    if (toFocus) review.focus(); 
+    return ok;
+
+}
 var description = feedback.elements.description;
 description.onblur = function () {validateDescription(false)};
 function validateDescription(toFocus) {
