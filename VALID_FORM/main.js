@@ -30,7 +30,7 @@ function validation(EO) {
     if (!ok) {
         EO.preventDefault();
         validate();   
-        // showAllSpan()
+        
     }
 }
 
@@ -47,8 +47,7 @@ function validate() {
     validateDescription(); 
 }
 
-//var  = document.getElementByName("");
-//.addEventListener('blur', function () {) }, false);
+
 
 function spanAlert(inputName, spanID, ff) {
     if (!ff) {
@@ -137,11 +136,12 @@ function validateMail(toFocus) {
 
 var section = feedback.elements.section;
 section.onchange = function () {validateSection(false)};
+
 function validateSection(toFocus) {
     var ok = true;
     var section = feedback.elements.section;
     var spanID = document.getElementById("sectionErr");
-    if (!section.value) {
+    if (section.value == 0) {
         ok = false;
     }
     spanAlert(section, spanID, ok);
@@ -151,6 +151,7 @@ function validateSection(toFocus) {
 
 var placing = feedback.elements.section;
 placing.onchange = function () {validatePlacing(false)};
+placing.onblur = function () {validatePlacing(false)};
 function validatePlacing(toFocus) {
     var ok = true;
     var placing = feedback.elements.placing;
@@ -158,21 +159,23 @@ function validatePlacing(toFocus) {
     var placing1 = document.getElementById("placing1");
     var placing2 = document.getElementById("placing2");
     var placing3 = document.getElementById("placing3");
-    if (placing1.checked || placing2.checked || placing1.checked) {
+    if (placing1.checked || placing2.checked || placing3.checked) {
         ok = true;
 
     } else {
         ok = false;
     }
     spanAlert(placing, spanID, ok);
-    placing.onchecked= function () {if (ok) spanID.style.visibility = "hidden"};
-    if (toFocus) placing.focus(); 
+    
+    
+    
     return ok;
     
 }
 
 var review = feedback.elements.section;
 review.onchange = function () {ValidateReview(false)};
+
 function ValidateReview(toFocus) {
     var ok = true;
     var review = feedback.elements.review;
@@ -182,13 +185,13 @@ function ValidateReview(toFocus) {
         ok = false;
     }
     spanAlert(review, spanID, ok);
-    if (ok) spanID.style.visibility = "hidden";
-    if (toFocus) review.focus(); 
+   if (toFocus) review.focus(); 
     return ok;
 
 }
 var description = feedback.elements.description;
 description.onblur = function () {validateDescription(false)};
+description.onchange = function () {validateDescription(false)};
 function validateDescription(toFocus) {
     var ok = true;
     var description = feedback.elements.description;
@@ -197,5 +200,7 @@ function validateDescription(toFocus) {
     ok = validateText(txt);
     spanAlert(description, spanID, ok);
     if (toFocus) description.focus(); 
+   
     return ok;
 }
+
