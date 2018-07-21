@@ -135,8 +135,7 @@ function validateMail(toFocus) {
 }
 
 var section = feedback.elements.section;
-section.onchange = function () {validateSection(false)};
-
+feedback.onchange = function () {validateSection(false)};
 function validateSection(toFocus) {
     var ok = true;
     var section = feedback.elements.section;
@@ -150,8 +149,8 @@ function validateSection(toFocus) {
 }
 
 var placing = feedback.elements.section;
-placing.onchange = function () {validatePlacing(false)};
-placing.onblur = function () {validatePlacing(false)};
+feedback.onchange = function () {validatePlacing(false)};
+
 function validatePlacing(toFocus) {
     var ok = true;
     var placing = feedback.elements.placing;
@@ -175,7 +174,7 @@ function validatePlacing(toFocus) {
 
 var review = feedback.elements.section;
 review.onchange = function () {ValidateReview(false)};
-
+review.onmouseover = function () {ValidateReview(false)};
 function ValidateReview(toFocus) {
     var ok = true;
     var review = feedback.elements.review;
