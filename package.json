@@ -1,0 +1,19 @@
+{
+  "name": "fd2-33-18_yulova-1",
+  "version": "1.0.0",
+  "description": "homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElenaYulova/FD2-33-18_Yulova.git"
+  },
+  "author": "Elena Yulova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElenaYulova/FD2-33-18_Yulova/issues"
+  },
+  "homepage": "https://github.com/ElenaYulova/FD2-33-18_Yulova#readme"
+}
