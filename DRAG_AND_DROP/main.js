@@ -24,15 +24,17 @@ document.onmousedown = function dragging(EO) {
     elem.style.top = EO.pageY - shiftY + "px";
   };
   
-  elem.onmouseup = function() {
-      document.onmousemove = null;
-      elem.style.cursor = 'default';
-    }
-  
+ 
 
   elem.ondragstart = function () {
     return false;
   };
   
   
+}
+document.onmouseup = function(EO) {
+  EO = EO || window.event;
+  var elem = EO.target;
+  document.onmousemove = null;
+  elem.style.cursor = 'default';
 }
