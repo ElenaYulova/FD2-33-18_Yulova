@@ -29,8 +29,7 @@ function validation(EO) {
     ok = ok && validateDescription(ok);
     if (!ok) {
         EO.preventDefault();
-        validate();   
-        
+        validate();       
     }
 }
 
@@ -61,6 +60,7 @@ function spanAlert(inputName, spanID, ff) {
 }
 var developer = feedback.elements.developer;
 developer.onblur = function () {validateDev(false)};
+developer.oninput = function () {validateDev(false)};
 function validateDev(toFocus) {
     var ok = true;
     var dev = feedback.elements.developer;
@@ -73,6 +73,7 @@ function validateDev(toFocus) {
 }
 var siteName = feedback.elements.siteName;
 siteName.onblur = function () {validateSiteName(false)};
+siteName.oninput = function () {validateSiteName(false)};
 function validateSiteName(toFocus) {
     var ok = true;
     var siteName = feedback.elements.siteName;
@@ -85,6 +86,7 @@ function validateSiteName(toFocus) {
 }
 var siteUrl = feedback.elements.siteUrl;
 siteUrl.onblur = function () {validateSiteUrl(false)};
+siteUrl.oninput = function () {validateSiteUrl(false)};
 function validateSiteUrl(toFocus) {
     var ok = true;
     var siteUrl = feedback.elements.siteUrl;
@@ -97,6 +99,7 @@ function validateSiteUrl(toFocus) {
 }
 var startDate = feedback.elements.startDate;
 startDate.onblur = function () {validateStartDate(false)};
+startDate.oninput = function () {validateStartDate(false)};
 function validateStartDate(toFocus) {
     var ok = true;
     var startDate = feedback.elements.startDate;
@@ -110,6 +113,7 @@ function validateStartDate(toFocus) {
 
 var visitors = feedback.elements.visitors;
 visitors.onblur = function () {validateVisitors(false)};
+visitors.oninput = function () {validateVisitors(false)};
 function validateVisitors(toFocus) {
     var ok = true;
     var visitors = feedback.elements.visitors;
@@ -123,6 +127,7 @@ function validateVisitors(toFocus) {
 
 var email = feedback.elements.email;
 email.onblur = function () {validateMail(false)};
+email.oninput = function () {validateMail(false)};
 function validateMail(toFocus) {
     var ok = true;
     var email = feedback.elements.email;
@@ -135,7 +140,11 @@ function validateMail(toFocus) {
 }
 
 var section = feedback.elements.section;
-feedback.onchange = function () {validateSection(false)};
+
+feedback.onchange = function () {validateSection(false); validatePlacing(false); ValidateReview(false)};
+feedback.onclick = function () {validateSection(false); validatePlacing(false); ValidateReview(false)};
+section.onclick = function () {validateSection(false)};
+section.onchange = function () {validateSection(false)};
 function validateSection(toFocus) {
     var ok = true;
     var section = feedback.elements.section;
@@ -149,8 +158,8 @@ function validateSection(toFocus) {
 }
 
 var placing = feedback.elements.section;
-feedback.onchange = function () {validatePlacing(false)};
-
+placing.onchange = function () {validatePlacing(false)};
+placing.onclick = function () {validatePlacing(false)};
 function validatePlacing(toFocus) {
     var ok = true;
     var placing = feedback.elements.placing;
@@ -174,7 +183,7 @@ function validatePlacing(toFocus) {
 
 var review = feedback.elements.section;
 review.onchange = function () {ValidateReview(false)};
-review.onmouseover = function () {ValidateReview(false)};
+review.onclick = function () {ValidateReview(false)};
 function ValidateReview(toFocus) {
     var ok = true;
     var review = feedback.elements.review;
@@ -190,7 +199,7 @@ function ValidateReview(toFocus) {
 }
 var description = feedback.elements.description;
 description.onblur = function () {validateDescription(false)};
-description.onchange = function () {validateDescription(false)};
+description.oninput = function () {validateDescription(false)};
 function validateDescription(toFocus) {
     var ok = true;
     var description = feedback.elements.description;
