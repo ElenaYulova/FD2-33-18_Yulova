@@ -8,8 +8,8 @@ for (var i = elems.length - 1; i >= 0; i--) {
   elem.style.left = elem.offsetLeft+"px";
   elem.style.top = elem.offsetTop+"px";
 }
-
-document.onmousedown = function dragging(EO) {
+document.body.addEventListener('mousedown', dragging, false);
+function dragging(EO) {
   EO = EO || window.event;
   var elem = EO.target;
   EO.preventDefault();  
@@ -23,18 +23,18 @@ document.onmousedown = function dragging(EO) {
     elem.style.left = EO.pageX - shiftX + "px";
     elem.style.top = EO.pageY - shiftY + "px";
   };
-  
- 
+  elem.addEventListener('mouseup', toMouseup, false);
+  function toMouseup(EO) {
+    EO = EO || window.event;
+    var elem = EO.target;
+      document.onmousemove = null;
+      elem.style.cursor = 'default';
+    }
+    elem.addEventListener('dragstart', toDragStart, false);
 
-  elem.ondragstart = function () {
+  function toDragStart() {
     return false;
   };
-  
-  
-}
-document.onmouseup = function(EO) {
-  EO = EO || window.event;
-  var elem = EO.target;
-  document.onmousemove = null;
-  elem.style.cursor = 'default';
+  document.body.removeEventListener('mouseup', toMouseup, false);
+  document.body.removeEventListener('dragstart', toDragStart, false);
 }
