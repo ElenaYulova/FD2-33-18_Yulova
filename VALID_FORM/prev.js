@@ -5,21 +5,15 @@ function validateText(text){
         return false;
     } else {
         return true;
-    }    
-}
-function spanAlert(inputName, spanID, ff) {
-    if (!ff) {
-        spanID.style.visibility = "visible";
-        
-        return false;
-    } else {
-        spanID.style.visibility = "hidden";
-        return true; 
     }
+    
 }
+
+
 var feedback = document.forms.feedback; 
 
 feedback.addEventListener('submit', validation, false);
+
 function validation(EO) {
     EO = EO || window.event;
     var ok = true;
@@ -52,51 +46,21 @@ function validate() {
     validateDescription(); 
 }
 
+
+
+function spanAlert(inputName, spanID, ff) {
+    if (!ff) {
+        spanID.style.visibility = "visible";
+        
+        return false;
+    } else {
+        spanID.style.visibility = "hidden";
+        return true; 
+    }
+}
 var developer = feedback.elements.developer;
-developer.addEventListener("blur", function () {validateDev(false)}, false);
-developer.addEventListener("input", function () {validateDev(false)}, false);
-
-var siteName = feedback.elements.siteName;
-siteName.addEventListener("blur", function () {validateSiteName(false)}, false);
-siteName.addEventListener("input", function () {validateSiteName(false)}, false);
-
-var siteUrl = feedback.elements.siteUrl;
-siteUrl.addEventListener("blur", function () {validateSiteUrl(false)}, false);
-siteUrl.addEventListener("input", function () {validateSiteUrl(false)}, false);
-
-var startDate = feedback.elements.startDate;
-startDate.addEventListener("blur", function () {validateStartDate(false)});
-startDate.addEventListener("input", function () {validateStartDate(false)});
-
-var visitors = feedback.elements.visitors;
-visitors.addEventListener("blur", function () {validateVisitors(false)});
-visitors.addEventListener("input", function () {validateVisitors(false)});
-
-var email = feedback.elements.email;
-email.addEventListener("blur", function () {validateMail(false)});
-email.addEventListener("input", function () {validateMail(false)});
-
-var section = feedback.elements.section;
-section.addEventListener("change", function () {validateSection(false)});
-section.addEventListener("click", function () {validateSection(false)});
-
-var placing1 = feedback.elements.placing1;
-placing1.addEventListener("change", function () {validatePlacing(false)});
-var placing2 = feedback.elements.placing1;
-placing2.addEventListener("change", function () {validatePlacing(false)});
-var placing3 = feedback.elements.placing1;
-placing1.addEventListener("change", function () {validatePlacing(false)});
-var placing3 = feedback.elements.placing1;
-placing2.addEventListener("change", function () {validatePlacing(false)});
-
-var review = feedback.elements.review;
-review.addEventListener("change", function () {ValidateReview(false)});
-review.addEventListener("click", function () {ValidateReview(false)});
-
-var description = feedback.elements.description;
-description.addEventListener("blur", function () {validateDescription(false)});
-
-
+developer.onblur = function () {validateDev(false)};
+developer.oninput = function () {validateDev(false)};
 function validateDev(toFocus) {
     var ok = true;
     var dev = feedback.elements.developer;
@@ -107,7 +71,9 @@ function validateDev(toFocus) {
     if (toFocus) dev.focus(); 
     return ok;
 }
-
+var siteName = feedback.elements.siteName;
+siteName.onblur = function () {validateSiteName(false)};
+siteName.oninput = function () {validateSiteName(false)};
 function validateSiteName(toFocus) {
     var ok = true;
     var siteName = feedback.elements.siteName;
@@ -118,7 +84,9 @@ function validateSiteName(toFocus) {
     if (toFocus) siteName.focus(); 
     return ok;
 }
-
+var siteUrl = feedback.elements.siteUrl;
+siteUrl.onblur = function () {validateSiteUrl(false)};
+siteUrl.oninput = function () {validateSiteUrl(false)};
 function validateSiteUrl(toFocus) {
     var ok = true;
     var siteUrl = feedback.elements.siteUrl;
@@ -129,7 +97,9 @@ function validateSiteUrl(toFocus) {
     if (toFocus) siteUrl.focus(); 
     return ok;
 }
-
+var startDate = feedback.elements.startDate;
+startDate.onblur = function () {validateStartDate(false)};
+startDate.oninput = function () {validateStartDate(false)};
 function validateStartDate(toFocus) {
     var ok = true;
     var startDate = feedback.elements.startDate;
@@ -141,6 +111,9 @@ function validateStartDate(toFocus) {
     return ok;
 }
 
+var visitors = feedback.elements.visitors;
+visitors.onblur = function () {validateVisitors(false)};
+visitors.oninput = function () {validateVisitors(false)};
 function validateVisitors(toFocus) {
     var ok = true;
     var visitors = feedback.elements.visitors;
@@ -152,6 +125,9 @@ function validateVisitors(toFocus) {
     return ok;
 }
 
+var email = feedback.elements.email;
+email.onblur = function () {validateMail(false)};
+email.oninput = function () {validateMail(false)};
 function validateMail(toFocus) {
     var ok = true;
     var email = feedback.elements.email;
@@ -163,6 +139,12 @@ function validateMail(toFocus) {
     return ok;
 }
 
+var section = feedback.elements.section;
+
+feedback.onchange = function () {validateSection(false); validatePlacing(false); ValidateReview(false)};
+feedback.onclick = function () {validateSection(false); validatePlacing(false); ValidateReview(false)};
+section.onclick = function () {validateSection(false)};
+section.onchange = function () {validateSection(false)};
 function validateSection(toFocus) {
     var ok = true;
     var section = feedback.elements.section;
@@ -175,6 +157,9 @@ function validateSection(toFocus) {
     return ok;
 }
 
+var placing = feedback.elements.section;
+placing.onchange = function () {validatePlacing(false)};
+placing.onclick = function () {validatePlacing(false)};
 function validatePlacing(toFocus) {
     var ok = true;
     var placing = feedback.elements.placing;
@@ -182,17 +167,23 @@ function validatePlacing(toFocus) {
     var placing1 = document.getElementById("placing1");
     var placing2 = document.getElementById("placing2");
     var placing3 = document.getElementById("placing3");
-    if (!placing1.checked && !placing2.checked && !placing3.checked) {
-        ok = false;
+    if (placing1.checked || placing2.checked || placing3.checked) {
+        ok = true;
 
     } else {
-        ok = true;
+        ok = false;
     }
-    spanAlert(placing, spanID, ok);  
-    if (toFocus) section.focus(); 
-    return ok; 
+    spanAlert(placing, spanID, ok);
+    
+    
+    
+    return ok;
+    
 }
 
+var review = feedback.elements.section;
+review.onchange = function () {ValidateReview(false)};
+review.onclick = function () {ValidateReview(false)};
 function ValidateReview(toFocus) {
     var ok = true;
     var review = feedback.elements.review;
@@ -204,8 +195,11 @@ function ValidateReview(toFocus) {
     spanAlert(review, spanID, ok);
    if (toFocus) review.focus(); 
     return ok;
-}
 
+}
+var description = feedback.elements.description;
+description.onblur = function () {validateDescription(false)};
+description.oninput = function () {validateDescription(false)};
 function validateDescription(toFocus) {
     var ok = true;
     var description = feedback.elements.description;
@@ -217,3 +211,4 @@ function validateDescription(toFocus) {
    
     return ok;
 }
+
