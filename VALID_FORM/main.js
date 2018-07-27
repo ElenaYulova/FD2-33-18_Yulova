@@ -82,12 +82,11 @@ section.addEventListener("click", function () {validateSection(false)});
 
 var placing1 = feedback.elements.placing1;
 placing1.addEventListener("change", function () {validatePlacing(false)});
-var placing2 = feedback.elements.placing1;
+var placing2 = feedback.elements.placing2;
 placing2.addEventListener("change", function () {validatePlacing(false)});
-var placing3 = feedback.elements.placing1;
-placing1.addEventListener("change", function () {validatePlacing(false)});
-var placing3 = feedback.elements.placing1;
-placing2.addEventListener("change", function () {validatePlacing(false)});
+var placing3 = feedback.elements.placing3;
+placing3.addEventListener("change", function () {validatePlacing(false)});
+
 
 var review = feedback.elements.review;
 review.addEventListener("change", function () {ValidateReview(false)});
