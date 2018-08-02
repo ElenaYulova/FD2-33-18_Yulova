@@ -1,4 +1,3 @@
-
 "use strict";
 //функция создания внешнего вида часов
 function createDOMClock() {
@@ -140,6 +139,7 @@ function createDOMClock() {
 
 }
 createDOMClock();
+funClock();
 setInterval(funClock, 1000);
 //функция формата выводимой даты
 function timeFormat(time) {
