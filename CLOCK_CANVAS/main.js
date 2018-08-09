@@ -95,4 +95,5 @@ function createCanvasClock() {
     angHand = ((ang - 90) / 180 * Math.PI);
     drawLine(clockRadius, clockRadius, secLength, angHand, secHandWidth, colorHands);
 }
+createCanvasClock();
 setInterval(createCanvasClock, 1000);
